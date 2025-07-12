@@ -55,15 +55,18 @@ text
 
 5. **Start the backend server:**
 
-  a.cd backened
+  a.cd backened 
+     
   b.node server.js
 
 
 text
 
 6. **Start the frontend app:**
-cd ../frontend
-npm start
+
+     cd ../frontend
+
+      npm start
 
 or  npx http-server -p 8000
 
