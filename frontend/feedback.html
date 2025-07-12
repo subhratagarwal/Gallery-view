@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="hamburger" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="feedback-centerer">
+      <div class="feedback-container">
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+          <input name="username" placeholder="Your Name" required aria-label="Your Name">
+          <textarea name="message" placeholder="Your feedback" required aria-label="Your Feedback"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <div id="feedbackMsg"></div>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

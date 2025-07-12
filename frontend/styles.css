@@ -1,0 +1,326 @@
+body {
+  background: url('images/camera.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Hamburger menu: always visible and always above sidebar */
+.hamburger {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 2000;
+  background: rgba(24,24,24,0.75);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0005;
+}
+.hamburger span {
+  width: 28px;
+  height: 4px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Sidebar: hidden by default, slides in when open */
+#sidebar {
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  background: rgba(24,24,24,0.92);
+  box-shadow: 2px 0 12px #0008;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  top: 0;
+  left: -220px;
+  z-index: 1000;
+  transition: left 0.3s;
+  padding-top: 60px;
+}
+#sidebar.open {
+  left: 0;
+}
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#sidebar ul li {
+  margin-bottom: 10px;
+}
+#sidebar ul li:last-child {
+  margin-bottom: 0;
+}
+#sidebar ul li a {
+  display: flex;
+  align-items: center;
+  color: #eee;
+  padding: 10px 0 10px 18px;
+  text-decoration: none;
+  transition: background 0.2s;
+  border-radius: 8px;
+  font-size: 1.05em;
+  gap: 10px;
+}
+#sidebar ul li a.active {
+  background: #ff9800;
+  color: #222;
+}
+#sidebar ul li a:hover {
+  background: #444;
+}
+
+/* Main content always overlays sidebar */
+main {
+  margin-left: 0;
+  padding: 2em 2.5em;
+  max-width: 700px;
+}
+
+/* Welcome block: modern, glassy, readable, and compact */
+.welcome-block {
+  background: rgba(34, 34, 34, 0.19);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #0007;
+  padding: 1.2em 1.5em;
+  max-width: 320px;
+  margin: 3em auto 0 auto;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.welcome-block h1 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.welcome-block p {
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Center the feedback container vertically and horizontally */
+.feedback-centerer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+/* Modern, glassy feedback form */
+.feedback-container {
+  background: rgba(34,34,34,0.28);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px #0007;
+  padding: 2.5em 2em 2em 2em;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align content */
+  margin: 3em 0 0 3em;    /* Top and left margin for positioning */
+  animation: fadeIn 0.7s;
+}
+
+.feedback-container h2 {
+  margin-bottom: 1.2em;
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+
+.feedback-container input,
+.feedback-container textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em 1.2em;
+  margin-bottom: 1.2em;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.13);
+  color: #fff;
+  font-size: 1.1em;
+  outline: none;
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+
+.feedback-container input:focus,
+.feedback-container textarea:focus {
+  background: rgba(255,255,255,0.22);
+  box-shadow: 0 4px 16px #ff980088;
+}
+
+.feedback-container button {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #ff9800 0%, #f44336 100%);
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #0004;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.feedback-container button:hover {
+  background: linear-gradient(90deg, #f44336 0%, #ff9800 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: none;}
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 700px) {
+  #sidebar {
+    width: 70vw;
+    min-width: 170px;
+    max-width: 260px;
+    left: -100vw;
+    border-radius: 0 18px 18px 0;
+  }
+  #sidebar.open {
+    left: 0;
+  }
+  main {
+    margin-left: 0;
+    margin-top: 64px;
+    padding: 1em;
+  }
+  .feedback-centerer {
+    min-height: 90vh;
+    padding: 0 0.3em;
+  }
+  .feedback-container {
+    max-width: 98vw;
+    margin: 2.5em 1vw 0 1vw;
+    padding: 1.5em 0.8em 1em 0.8em;
+  }
+}
+
+/* Button, form, gallery, and preview styles (for consistency with other pages) */
+form {
+  margin-bottom: 2em;
+}
+button, input[type="submit"] {
+  background: linear-gradient(90deg, #ff9800 0%, #f44336 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #0004;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 10px;
+}
+button:hover, input[type="submit"]:hover {
+  background: linear-gradient(90deg, #f44336 0%, #ff9800 100%);
+  transform: translateY(-2px) scale(1.05);
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+#gallery img {
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #000a;
+  object-fit: cover;
+}
+
+#imgPreview {
+  display: none;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+/* GALLERY ITEM & DELETE BUTTON -- NO REDUNDANCY! */
+.gallery-item {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  transition: box-shadow 0.2s;
+}
+
+.gallery-item img {
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #000a;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+
+.gallery-item:hover img {
+  filter: brightness(0.85);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(34,34,34,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0005;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 2;
+  padding: 0;
+}
+
+.gallery-item:hover .delete-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.delete-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2.2;
+}
+
+.custom-file-label {
+  margin-left: 48px;  /* Space from the left edge */
+  margin-top: 32px;   /* Space from the top */
+  /* ...other styles... */
+}

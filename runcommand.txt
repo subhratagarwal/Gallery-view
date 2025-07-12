@@ -1,0 +1,8 @@
+start both front end server and backened server
+
+1. go to frontend folder -     cd frontend
+2. after cd front run the command in the same terminal -       npx http-server -p 8000
+
+3.  now open new terminal and go to backened folder -     cd backened
+
+4.  after running cd backened run the command in the same terminal -      node server.js

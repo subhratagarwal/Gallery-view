@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="hamburger" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
+    </ul>
+  </nav>
+  <main>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" id="imgInput" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+        <img id="imgPreview" alt="Preview" style="display:none; margin-top:10px; max-width:200px;">
+    </form>
+
+    <div id="gallery" class="gallery"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
